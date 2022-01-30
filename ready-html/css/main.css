@@ -6,6 +6,7 @@
     --line-height: 1.65;
     --userfont: roboto-st, sans-serif;
     --systemfont: -apple-system, BlinkMacSystemFont, Arial, sans-serif;
+    --padding: 120px;
 }
 
 /* BOOTSTRAP SETTINGS SECTION */
@@ -69,15 +70,63 @@ body, html {
     opacity: 0.48;
 }
 
+.showcase__content__wrapper {
+    position: relative;
+    z-index: 2;
+    height: 100%;
+    padding: var(--padding) 0;
+}
+
+.showcase__content__wrapper::before{
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-image: url(../images/glow.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    animation: key-glow 1.8s ease-in-out infinite;
+}
+
+.showcase__header {
+    position: absolute;
+    text-align: center;
+    width: 100%;
+    z-index: 1;
+    top: 40px;
+    font-family: assassin-st, sans-serif;
+    font-size: 32px;
+    color: rgba(255,255,255,.75);
+}
+
+.showcase__header span {
+    color: var(--accent);
+}
+
 /*Animations*/
 @keyframes key-light {
     0%{
-        opacity: 0.2;
+        opacity: .2;
     }
     50%{
-        opacity: 0.3;
+        opacity: .3;
     }
     100%{
-        opacity: 0.2;
+        opacity: .2;
+    }
+}
+
+@keyframes key-glow {
+    0%{
+        opacity: .6;
+    }
+    50%{
+        opacity: .8;
+    }
+    100%{
+        opacity: .6;
     }
 }
